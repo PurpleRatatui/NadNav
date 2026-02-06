@@ -18,7 +18,4 @@ services:
     startCommand: cd client && npx vite preview --host --port $PORT
     envVars:
       - key: VITE_API_URL
-        fromService:
-          type: web
-          name: nadnav-server
-          property: url
+        value: placeholder_needs_manual_update
