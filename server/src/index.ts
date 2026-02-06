@@ -22,6 +22,11 @@ app.get('/api/feed', (req, res) => {
 });
 
 app.post('/api/debug/seed', (req, res) => {
+    const now = Date.now();
+    const hour = 60 * 60 * 1000;
+    const day = 24 * hour;
+
+    // 1. Live/Now
     Store.addToken({
         address: '0x1234567890abcdef1234567890abcdef12345678',
         name: 'MoltDog',
@@ -29,7 +34,7 @@ app.post('/api/debug/seed', (req, res) => {
         creator: '0xcreator...',
         metadataURI: 'https://placehold.co/400x400/836EF9/FFF?text=MoltDog',
         vibeScore: 95,
-        timestamp: Date.now(),
+        timestamp: now,
     });
     Store.addToken({
         address: '0xabcdef...',
@@ -38,9 +43,43 @@ app.post('/api/debug/seed', (req, res) => {
         creator: '0xanon...',
         metadataURI: '',
         vibeScore: 10,
-        timestamp: Date.now(),
+        timestamp: now,
     });
-    res.json({ message: 'Seeded' });
+
+    // 2. 2 Hours Ago (Should show in 24h, 3d, All)
+    Store.addToken({
+        address: '0xretro...',
+        name: 'RetroRun',
+        symbol: 'RETRO',
+        creator: '0xvintage...',
+        metadataURI: 'https://placehold.co/400x400/FF00FF/FFF?text=RETRO',
+        vibeScore: 88,
+        timestamp: now - (2 * hour),
+    });
+
+    // 3. 26 Hours Ago (Should show in 3d, All)
+    Store.addToken({
+        address: '0xyesterday...',
+        name: 'YesterdayYield',
+        symbol: 'YIELD',
+        creator: '0xfarmer...',
+        metadataURI: 'https://placehold.co/400x400/00FF00/000?text=YIELD',
+        vibeScore: 42,
+        timestamp: now - (26 * hour),
+    });
+
+    // 4. 4 Days Ago (Should only show in All)
+    Store.addToken({
+        address: '0xancient...',
+        name: 'JurassicGem',
+        symbol: 'DINO',
+        creator: '0xfossil...',
+        metadataURI: 'https://placehold.co/400x400/964B00/FFF?text=DINO',
+        vibeScore: 99,
+        timestamp: now - (4 * day),
+    });
+
+    res.json({ message: 'Seeded with history' });
 });
 
 app.listen(PORT, () => {
