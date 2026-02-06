@@ -10,12 +10,12 @@ services:
         value: 10000
     autoDeploy: true
 
-  # Frontend (Static Site)
-  - type: static
+  # Frontend (Served via Node.js for reliability)
+  - type: web
     name: nadnav-client
-    env: static
+    env: node
     buildCommand: cd client && npm install && npm run build
-    staticPublishPath: client/dist
+    startCommand: cd client && npx vite preview --host --port $PORT
     envVars:
       - key: VITE_API_URL
         fromService:
