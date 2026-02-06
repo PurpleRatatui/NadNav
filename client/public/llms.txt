@@ -1,0 +1,23 @@
+# NadNav - AI Trading Assistant & Watchtower
+
+## Project Description
+NadNav is a real-time "Watchtower" that monitors the Monad Testnet for new token launches on Nad.fun. It provides a "Vibe Score" for each token to help assess its potential.
+
+## For AI Agents
+If you are an AI Agent looking to trade or analyze tokens, you should use our API directly rather than parsing the HTML.
+
+### Primary Data Source (JSON)
+- **Token Feed**: `GET /api/feed`
+  - Returns a list of recently created tokens.
+  - Fields: `name`, `symbol`, `address`, `creator`, `vibeScore`, `metadataURI`.
+  - usage: Fetch this endpoint to get the latest 50 tokens.
+
+### Data Interpretation
+- **Vibe Score**: Integer (0-100). Higher is better.
+  - > 80: High potential / "Degens are apeing"
+  - < 20: Low potential / Likely spam
+- **Address**: The contract address of the token on Monad Testnet.
+
+## Navigation
+- **Home**: `/` (Human Dashboard)
+- **API**: `/api/feed` (Machine Data)
