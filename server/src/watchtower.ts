@@ -1,9 +1,9 @@
 import { createPublicClient, http, parseAbiItem } from 'viem';
 import { Store } from './store';
 
-// Constants for Monad Testnet and Nad.fun
-const RPC_URL = 'https://monad-testnet.drpc.org';
-const CURVE_ADDRESS = '0x1228b0dc9481C11D3071E7A924B794CfB038994e';
+// Constants for Monad Mainnet and Nad.fun
+const RPC_URL = 'https://rpc.monad.xyz';
+const CURVE_ADDRESS = '0x6F6B8F1a20703309951a5127c45B49b1CD981A22';
 
 // CurveCreate Event ABI
 const curveCreateEventAbi = parseAbiItem(
@@ -11,7 +11,7 @@ const curveCreateEventAbi = parseAbiItem(
 );
 
 export async function startWatchtower() {
-    console.log(' Starting NadNav Watchtower on Monad Testnet...');
+    console.log(' Starting NadNav Watchtower on Monad MAINNET...');
 
     const client = createPublicClient({
         transport: http(RPC_URL)
@@ -19,7 +19,7 @@ export async function startWatchtower() {
 
     try {
         const blockNumber = await client.getBlockNumber();
-        console.log(` Connected to Monad Testnet. Current block: ${blockNumber}`);
+        console.log(` Connected to Monad Mainnet. Current block: ${blockNumber}`);
 
         // Watch for new token creation events
         const unwatch = client.watchEvent({

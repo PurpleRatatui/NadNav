@@ -1,6 +1,6 @@
 # NadNav - Nad.fun Navigator 🦞
 
-**NadNav** is an autonomous "Watchtower Agent" and "Degen Dashboard" built for the [Moltiverse Hackathon](https://moltiverse.dev). It brings clarity and vibes to the Moltiverse token ecosystem by monitoring the Monad Testnet for new launches in real-time.
+**NadNav** is an autonomous "Watchtower Agent" and "Degen Dashboard" built for the [Moltiverse Hackathon](https://moltiverse.dev). It brings clarity and vibes to the Moltiverse token ecosystem by monitoring the Monad Mainnet for new launches in real-time.
 
 ![NadNav Dashboard Visual](./nadnav_dashboard_verification_1770404570071.webp)
 *(Note: Visuals are from the verification run)*

@@ -66,7 +66,7 @@ export function TokenCard({ token }: Props) {
                     {token.address.slice(0, 4)}...{token.address.slice(-4)}
                 </div>
                 <a
-                    href={`https://testnet.nad.fun/token/${token.address}`}
+                    href={`https://nad.fun/token/${token.address}`}
                     target="_blank"
                     rel="noreferrer"
                     className={`
