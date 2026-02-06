@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-monad-dark text-white;
+  }
+}
+
+.neon-border {
+  box-shadow: 0 0 10px #836EF9, 0 0 20px #836EF9;
+}
+
+.vibe-glow {
+  text-shadow: 0 0 5px #00ff94;
+}
