@@ -4,14 +4,38 @@
 
 @layer base {
   body {
-    @apply bg-monad-dark text-white;
+    @apply bg-monad-dark text-white overflow-x-hidden;
+    background-image:
+      linear-gradient(rgba(131, 110, 249, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(131, 110, 249, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: center 0;
+    animation: scrollGrid 20s linear infinite;
+  }
+}
+
+@keyframes scrollGrid {
+  0% {
+    transform: perspective(1000px) rotateX(10deg) translateY(0);
+  }
+
+  100% {
+    transform: perspective(1000px) rotateX(10deg) translateY(50px);
   }
 }
 
 .neon-border {
-  box-shadow: 0 0 10px #836EF9, 0 0 20px #836EF9;
+  box-shadow: 0 0 10px #836EF9, inset 0 0 20px rgba(131, 110, 249, 0.2);
+}
+
+.neon-border-green {
+  box-shadow: 0 0 15px #00ff94, inset 0 0 20px rgba(0, 255, 148, 0.2);
 }
 
 .vibe-glow {
-  text-shadow: 0 0 5px #00ff94;
+  text-shadow: 0 0 10px #00ff94, 0 0 20px #00ff94;
+}
+
+.glass-panel {
+  @apply backdrop-blur-xl bg-black/40 border border-white/10;
 }
