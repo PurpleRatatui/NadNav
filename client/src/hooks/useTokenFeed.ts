@@ -17,7 +17,8 @@ export function useTokenFeed() {
     useEffect(() => {
         const fetchTokens = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/api/feed');
+                const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+                const response = await axios.get(`${apiUrl}/api/feed`);
                 setTokens(response.data.tokens);
             } catch (error) {
                 console.error('Error fetching tokens:', error);
